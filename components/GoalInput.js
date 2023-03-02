@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const GoalInput = (props) => {
 
-    var i =0
+    
     let url = 'https://reactnative.dev/movies.json'
     const [enteredGoalText, setEnteredGoalText] = useState('');
     const [apiData, setApiData] = useState([]);
