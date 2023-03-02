@@ -34,7 +34,7 @@ export default function App() {
     <View style={styles.appContainer} >
       <Button title='ADD NEW GOAL'  color='#3c60e0' onPress={startAddGoalHandler} />
       <View>
-        <Text style={styles.text} >List of Goals!!</Text>
+        <Text style={styles.text} >Your Goals!!</Text>
       </View>
       <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler}/>
       <View style={styles.goalsConstainer}>

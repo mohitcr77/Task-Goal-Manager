@@ -1,8 +1,23 @@
 import { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Modal, Image } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Modal, Image, Text } from 'react-native'
+import axios from 'axios';
 
 const GoalInput = (props) => {
+
+    var i =0
+    let url = 'https://reactnative.dev/movies.json'
     const [enteredGoalText, setEnteredGoalText] = useState('');
+    const [apiData, setApiData] = useState([]);
+
+
+    
+
+    const fetchData = async () => {
+        axios.get(url).then((response) => {
+            setApiData(response.data.movies);
+        });
+    };
+
     function goalsInputHandler(enteredText) {
         setEnteredGoalText(enteredText);
     }
@@ -30,6 +45,12 @@ const GoalInput = (props) => {
                         <Button title='Cancel' onPress={props.onCancel} color='red' />
                     </View>
                 </View>
+                <View style={{margin: 15}}>
+                <Button title='Get Data' onPress={fetchData} />                    
+                </View>
+                <View>{apiData.map((item) => 
+                    <Text> {item.title} </Text>)
+                }</View>
             </View>
         </Modal>
     )
@@ -50,10 +71,10 @@ const styles = StyleSheet.create({
         width: '90%',
         marginRight: 8,
         padding: 8,
-        color: '#cccccc',
+        color: '#000000',
         backgroundColor: '#f4f4f4',
-        borderRadius : 10,
-        padding: 8 
+        borderRadius: 10,
+        padding: 8
     },
     buttonContainer: {
         flexDirection: 'row',
