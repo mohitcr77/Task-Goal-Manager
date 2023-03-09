@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
-import GoalInput from '../components/GoalInput';
-import GoalItem from '../components/GoalItem'
-
+import GoalInput from '../component/GoalInput';
+import GoalItem from '../component/GoalItem'
 import React from 'react'
 
 const HomeScreen = ({ navigation }) => {
